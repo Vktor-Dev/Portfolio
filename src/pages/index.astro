@@ -20,9 +20,9 @@ const projects = [
   },
 ];
 
-const skills: Record<string, string[]> = {
+const skills = {
   'Lenguajes': ['Python', 'Java', 'C++', 'SQL'],
-  'Cloud & Datos': ['AWS', 'Power BI', 'Power Apps', 'GitHub Actions'],
+  'Cloud y Datos': ['AWS', 'Power BI', 'Power Apps', 'GitHub Actions'],
   'Seguridad': ['Criptografía aplicada', 'Fundamentos de redes', 'OWASP'],
   'Herramientas': ['Git', 'Linux', 'VS Code', 'Docker'],
 };
@@ -32,70 +32,20 @@ const skills: Record<string, string[]> = {
   description="Desarrollador con interés en ciberseguridad y Cloud. Actualmente en Accenture, Málaga."
 >
   <Nav />
-
   <main>
+
     <section style="border-top:none;padding:6rem 0 5rem;">
       <div class="container">
-        <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:1.5rem;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:5px 14px;">
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block;animation:pulse 2s ease-in-out infinite;"></span>
-          <span style="font-size:0.8rem;color:var(--text2);">Disponible para proyectos</span>
-        </div>
-cat > ~/Escritorio/Cosas\ Github/Portfolio/src/pages/index.astro << 'EOF'
----
-import Base from '../layouts/Base.astro';
-import Nav from '../components/Nav.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-
-const projects = [
-  {
-    title: 'AWS Study Hub',
-    description: 'App web interactiva para preparar el examen AWS AI Practitioner. Quiz por dominio, flashcards, notas organizadas y tracker de progreso. Construida con React y Vite.',
-    tags: ['React', 'Vite', 'TypeScript', 'AWS'],
-    demo: 'https://aws-study-hub.vercel.app',
-    repo: 'https://github.com/Vktor-Dev/aws-study-hub',
-    highlight: true,
-  },
-  {
-    title: 'Portfolio website',
-    description: 'Este mismo portfolio. Construido con Astro para máximo rendimiento estático. Diseño minimalista dark, desplegado en GitHub Pages con CI/CD.',
-    tags: ['Astro', 'CSS', 'GitHub Actions', 'GitHub Pages'],
-    repo: 'https://github.com/Vktor-Dev/Portfolio',
-  },
-];
-
-const skills: Record<string, string[]> = {
-  'Lenguajes': ['Python', 'Java', 'C++', 'SQL'],
-  'Cloud & Datos': ['AWS', 'Power BI', 'Power Apps', 'GitHub Actions'],
-  'Seguridad': ['Criptografía aplicada', 'Fundamentos de redes', 'OWASP'],
-  'Herramientas': ['Git', 'Linux', 'VS Code', 'Docker'],
-};
----
-<Base
-  title="Victor Ortega — Desarrollador"
-  description="Desarrollador con interés en ciberseguridad y Cloud. Actualmente en Accenture, Málaga."
->
-  <Nav />
-
-  <main>
-    <section style="border-top:none;padding:6rem 0 5rem;">
-      <div class="container">
-        <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:1.5rem;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:5px 14px;">
-          <span style="width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block;animation:pulse 2s ease-in-out infinite;"></span>
-          <span style="font-size:0.8rem;color:var(--text2);">Disponible para proyectos</span>
-        </div>
-        <h1>
-          Hola, soy Victor.<br />
-          <span style="color:var(--accent);">Desarrollador</span> &amp;<br />
-          futuro especialista en<br />
-          seguridad.
-        </h1>
-        <p style="max-width:480px;margin:1.5rem 0 2rem;font-size:1rem;line-height:1.8;color:var(--text2);">
+        <p class="accent" style="margin-bottom:1rem;">Hola, mi nombre es</p>
+        <h1>Victor Ortega.</h1>
+        <h1 style="color:var(--text2);">Desarrollador &amp; futuro especialista en seguridad.</h1>
+        <p style="max-width:480px;margin:1.5rem 0 2rem;">
           No espero tener el título para construir cosas serias. Cada proyecto que publico
           es una excusa para entender algo más a fondo. Trabajo en Accenture y estudio
           Ingeniería Informática en Málaga.
         </p>
         <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <a href="#proyectos" class="btn primary">Ver proyectos</a>
+          <a href="#proyectos" class="btn">Ver proyectos</a>
           <a href="https://github.com/Vktor-Dev" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
           <a href="https://www.linkedin.com/in/victor-ortega-dev" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
           <a href="https://www.instagram.com/vitya13__/" target="_blank" rel="noopener" class="btn">Instagram ↗</a>
@@ -157,7 +107,7 @@ const skills: Record<string, string[]> = {
           ¿Quieres hablar de proyectos, colaboraciones o simplemente conectar? Escríbeme.
         </p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;">
-          <a href="https://www.linkedin.com/in/victor-ortega-dev" target="_blank" rel="noopener" class="btn primary">LinkedIn ↗</a>
+          <a href="https://www.linkedin.com/in/victor-ortega-dev" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
           <a href="https://github.com/Vktor-Dev" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
           <a href="https://www.instagram.com/vitya13__/" target="_blank" rel="noopener" class="btn">Instagram ↗</a>
         </div>
@@ -166,17 +116,9 @@ const skills: Record<string, string[]> = {
 
     <footer style="border-top:1px solid var(--border);padding:2rem 0;text-align:center;">
       <div class="container">
-        <p style="font-size:0.8rem;color:var(--text2);">
-          Construido con Astro · Desplegado en GitHub Pages
-        </p>
+        <p style="font-size:0.8rem;color:var(--text2);">Construido con Astro · Desplegado en GitHub Pages</p>
       </div>
     </footer>
+
   </main>
 </Base>
-
-<style>
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-</style>
