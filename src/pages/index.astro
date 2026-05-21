@@ -40,6 +40,49 @@ const skills: Record<string, string[]> = {
           <span style="width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block;animation:pulse 2s ease-in-out infinite;"></span>
           <span style="font-size:0.8rem;color:var(--text2);">Disponible para proyectos</span>
         </div>
+cat > ~/Escritorio/Cosas\ Github/Portfolio/src/pages/index.astro << 'EOF'
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = [
+  {
+    title: 'AWS Study Hub',
+    description: 'App web interactiva para preparar el examen AWS AI Practitioner. Quiz por dominio, flashcards, notas organizadas y tracker de progreso. Construida con React y Vite.',
+    tags: ['React', 'Vite', 'TypeScript', 'AWS'],
+    demo: 'https://aws-study-hub.vercel.app',
+    repo: 'https://github.com/Vktor-Dev/aws-study-hub',
+    highlight: true,
+  },
+  {
+    title: 'Portfolio website',
+    description: 'Este mismo portfolio. Construido con Astro para máximo rendimiento estático. Diseño minimalista dark, desplegado en GitHub Pages con CI/CD.',
+    tags: ['Astro', 'CSS', 'GitHub Actions', 'GitHub Pages'],
+    repo: 'https://github.com/Vktor-Dev/Portfolio',
+  },
+];
+
+const skills: Record<string, string[]> = {
+  'Lenguajes': ['Python', 'Java', 'C++', 'SQL'],
+  'Cloud & Datos': ['AWS', 'Power BI', 'Power Apps', 'GitHub Actions'],
+  'Seguridad': ['Criptografía aplicada', 'Fundamentos de redes', 'OWASP'],
+  'Herramientas': ['Git', 'Linux', 'VS Code', 'Docker'],
+};
+---
+<Base
+  title="Victor Ortega — Desarrollador"
+  description="Desarrollador con interés en ciberseguridad y Cloud. Actualmente en Accenture, Málaga."
+>
+  <Nav />
+
+  <main>
+    <section style="border-top:none;padding:6rem 0 5rem;">
+      <div class="container">
+        <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:1.5rem;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:5px 14px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block;animation:pulse 2s ease-in-out infinite;"></span>
+          <span style="font-size:0.8rem;color:var(--text2);">Disponible para proyectos</span>
+        </div>
         <h1>
           Hola, soy Victor.<br />
           <span style="color:var(--accent);">Desarrollador</span> &amp;<br />
@@ -96,9 +139,7 @@ const skills: Record<string, string[]> = {
           </p>
           <p style="line-height:1.85;margin-bottom:1.25rem;">
             No espero tener el título para construir cosas serias. Cada proyecto que
-            publico es una excusa para entender algo más a fondo — desde implementar
-            Diffie-Hellman desde cero hasta construir herramientas que uso yo mismo
-            para estudiar. Sé exactamente hacia dónde voy.
+            publico es una excusa para entender algo más a fondo. Sé exactamente hacia dónde voy.
           </p>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <span class="tag">Accenture</span>
