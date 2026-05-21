@@ -1,0 +1,35 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  demo?: string;
+  repo?: string;
+  highlight?: boolean;
+}
+const { title, description, tags, demo, repo, highlight = false } = Astro.props;
+---
+<div class="card" style={highlight ? 'border-color: rgba(127,119,221,0.5);' : ''}>
+  {highlight && (
+    <span class="tag accent" style="margin-bottom:0.75rem;display:inline-block;">
+      Destacado
+    </span>
+  )}
+  <h3 style="margin-bottom:0.5rem;">{title}</h3>
+  <p style="font-size:0.875rem;margin-bottom:1rem;line-height:1.6;">{description}</p>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1rem;">
+    {tags.map(t => <span class="tag">{t}</span>)}
+  </div>
+  <div style="display:flex;gap:8px;">
+    {demo && (
+      <a href={demo} target="_blank" rel="noopener" class="btn" style="font-size:0.8rem;padding:7px 14px;">
+        Demo ↗
+      </a>
+    )}
+    {repo && (
+      <a href={repo} target="_blank" rel="noopener" class="btn" style="font-size:0.8rem;padding:7px 14px;">
+        GitHub ↗
+      </a>
+    )}
+  </div>
+</div>

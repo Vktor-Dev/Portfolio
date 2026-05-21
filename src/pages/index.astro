@@ -1,0 +1,149 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = [
+  {
+    title: 'AWS AIF-C01 Study Hub',
+    description: 'App web interactiva para preparar el examen AWS AI Practitioner. Quiz por dominio, flashcards con spaced repetition, notas organizadas y tracker de progreso. Construida con React y Vite.',
+    tags: ['React', 'Vite', 'TypeScript', 'AWS', 'LocalStorage'],
+    demo: 'https://aws-study-hub.vercel.app',
+    repo: 'https://github.com/victor/aws-aif-study-hub',
+    highlight: true,
+  },
+  {
+    title: 'Diffie-Hellman Key Exchange',
+    description: 'Implementación del protocolo DH en C++ y Java con generación de primos seguros, exponenciación modular y demo CLI del handshake completo entre dos partes.',
+    tags: ['C++', 'Java', 'Criptografía', 'Redes', 'CLI'],
+    repo: 'https://github.com/victor/diffie-hellman',
+  },
+  {
+    title: 'Portfolio website',
+    description: 'Este mismo portfolio. Construido con Astro para máximo rendimiento estático. Diseño minimalista dark, 100/100 en Lighthouse, desplegado en GitHub Pages con CI/CD.',
+    tags: ['Astro', 'CSS', 'GitHub Actions', 'GitHub Pages'],
+    repo: 'https://github.com/victor/portfolio',
+  },
+];
+
+const skills: Record<string, string[]> = {
+  'Lenguajes': ['Python', 'Java', 'C++', 'JavaScript', 'TypeScript', 'SQL'],
+  'Cloud & Datos': ['AWS', 'Power BI', 'Power Apps', 'GitHub Actions'],
+  'Seguridad': ['Criptografía aplicada', 'Fundamentos de redes', 'OWASP'],
+  'Herramientas': ['Git', 'Linux', 'VS Code', 'Docker'],
+};
+---
+<Base
+  title="Victor — Desarrollador & Cybersecurity"
+  description="Desarrollador con interés en ciberseguridad y Cloud. Actualmente en Accenture, Málaga."
+>
+  <Nav />
+
+  <main>
+    <!-- Hero -->
+    <section style="border-top:none;padding:6rem 0 5rem;">
+      <div class="container">
+        <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:1.5rem;background:var(--bg3);border:1px solid var(--border);border-radius:20px;padding:5px 14px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--accent2);display:inline-block;animation:pulse 2s ease-in-out infinite;"></span>
+          <span style="font-size:0.8rem;color:var(--text2);">Disponible para proyectos</span>
+        </div>
+        <h1>
+          Hola, soy Victor.<br />
+          <span style="color:var(--accent);">Desarrollador</span> &amp;<br />
+          futuro especialista en<br />
+          <span style="color:var(--accent2);">ciberseguridad.</span>
+        </h1>
+        <p style="max-width:480px;margin:1.5rem 0 2rem;font-size:1rem;line-height:1.8;color:var(--text2);">
+          Trabajo en Accenture desarrollando soluciones con Power BI y herramientas de IA.
+          Preparando AWS AI Practitioner (AIF-C01). A largo plazo: seguridad ofensiva.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="#proyectos" class="btn primary">Ver proyectos</a>
+          <a href="https://github.com/victor" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
+          <a href="https://linkedin.com/in/victor" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos">
+      <div class="container">
+        <h2>Proyectos</h2>
+        <div style="display:grid;gap:1rem;">
+          {projects.map(p => <ProjectCard {...p} />)}
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="container">
+        <h2>Skills</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;">
+          {Object.entries(skills).map(([cat, items]) => (
+            <div class="card">
+              <h3 style="margin-bottom:0.75rem;font-size:0.8rem;color:var(--text2);text-transform:uppercase;letter-spacing:.07em;font-weight:600;">{cat}</h3>
+              <div style="display:flex;flex-wrap:wrap;gap:6px;">
+                {items.map(s => <span class="tag">{s}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre mí -->
+    <section id="sobre-mi">
+      <div class="container">
+        <h2>Sobre mí</h2>
+        <div class="card" style="max-width:600px;">
+          <p style="line-height:1.85;margin-bottom:1rem;">
+            Soy un desarrollador de 25 años basado en Málaga, actualmente trabajando en Accenture
+            donde desarrollo soluciones con Power BI, Power Apps y herramientas de IA generativa.
+            Estudio Ingeniería Informática y me preparo para la certificación AWS AI Practitioner.
+          </p>
+          <p style="line-height:1.85;margin-bottom:1.25rem;">
+            Mi objetivo a largo plazo es especializarme en ciberseguridad. Construyo proyectos que
+            combinan desarrollo real, cloud y seguridad para tener un portfolio con profundidad técnica.
+          </p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="tag accent">AWS AI Practitioner (prep)</span>
+            <span class="tag green">Accenture</span>
+            <span class="tag">Málaga, ES</span>
+            <span class="tag">Ingeniería Informática</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+      <div class="container">
+        <h2>Contacto</h2>
+        <p style="margin-bottom:1.5rem;max-width:420px;line-height:1.7;">
+          ¿Quieres hablar de proyectos, colaboraciones o simplemente conectar? Escríbeme.
+        </p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a href="mailto:victor@example.com" class="btn primary">Enviar email</a>
+          <a href="https://linkedin.com/in/victor" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
+          <a href="https://github.com/victor" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <footer style="border-top:1px solid var(--border);padding:2rem 0;text-align:center;">
+      <div class="container">
+        <p style="font-size:0.8rem;color:var(--text2);">
+          Construido con Astro · Desplegado en GitHub Pages
+        </p>
+      </div>
+    </footer>
+  </main>
+</Base>
+
+<style>
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+</style>
